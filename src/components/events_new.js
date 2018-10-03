@@ -27,16 +27,14 @@ class EventsNew extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, pristine, submitting } = this.props
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        <div>
-          <Field label="Title" name="title" type="text" component={this.renderField} />
-          <div><Field label="Body" name="body" type="text" component={this.renderField} /></div>
+        <div><Field label="Title" name="title" type="text" component={this.renderField} /></div>
+        <div><Field label="Body" name="body" type="text" component={this.renderField} /></div>
 
-          <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting || invalid} />
-          <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />}/>
-        </div>
+        <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting || invalid} />
+        <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />}/>
       </form>
     )
   }
